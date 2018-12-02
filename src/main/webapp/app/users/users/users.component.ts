@@ -58,4 +58,8 @@ export class UsersComponent implements OnInit {
         this.userService.init();
         this.deletionFlow.subscribe();
     }
+
+    track(index, item: IUser) {
+        return item.id;
+    }
 }

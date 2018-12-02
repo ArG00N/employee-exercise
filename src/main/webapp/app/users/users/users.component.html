@@ -1,7 +1,27 @@
-<ul class="list-group">
+<!-- <ul class="list-group">
   <jhi-user (onDelete)="this.deleteUser$.next($event)" class="list-group-item" *ngFor="let user of this.users" [user]="user">
   </jhi-user>
-</ul>
+</ul> -->
+
+<table class="table table-striped">
+  <thead>
+  <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+      <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+      <th jhiSortBy="login"><span jhiTranslate="userManagement.login">Login</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+      <th jhiSortBy="email"><span jhiTranslate="userManagement.email">Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+      <th></th>
+      <th jhiSortBy="langKey"> <span jhiTranslate="userManagement.langKey">Lang Key</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+      <th><span jhiTranslate="userManagement.profiles">Profiles</span></th>
+      <th jhiSortBy="createdDate"><span jhiTranslate="userManagement.createdDate">Created Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+      <th jhiSortBy="lastModifiedBy"><span jhiTranslate="userManagement.lastModifiedBy">Last Modified By</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+      <th jhiSortBy="lastModifiedDate"><span jhiTranslate="userManagement.lastModifiedDate">Last Modified Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+      <th></th>
+  </tr>
+  </thead>
+  <tbody *ngIf ="users">
+  <tr jhi-user *ngFor="let user of users; trackBy: track" [user]="user"></tr>
+  </tbody>
+</table>
 
 <ng-template #confirmation>
   <div class="modal-header">

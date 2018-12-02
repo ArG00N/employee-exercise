@@ -1,0 +1,5 @@
+<fa-icon style="flex: 0 0 30px" [icon]="'user'"></fa-icon>
+<span style="flex: 1">{{this.user.lastName}}, {{this.user.firstName}}</span>
+<button *jhiHasAnyAuthority="'ROLE_ADMIN'" (click)="this.onDelete.emit(this.user)" style="align-self: flex-end"type="button" class="btn btn-light">
+  <fa-icon [icon]="'trash'"></fa-icon>
+</button>

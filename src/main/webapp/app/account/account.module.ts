@@ -4,14 +4,12 @@ import { RouterModule } from '@angular/router';
 import { EmployeeExerciseSharedModule } from 'app/shared';
 
 import {
-    SessionsComponent,
     PasswordStrengthBarComponent,
     RegisterComponent,
     ActivateComponent,
     PasswordComponent,
     PasswordResetInitComponent,
     PasswordResetFinishComponent,
-    SettingsComponent,
     accountState
 } from './';
 
@@ -23,9 +21,7 @@ import {
         PasswordComponent,
         PasswordStrengthBarComponent,
         PasswordResetInitComponent,
-        PasswordResetFinishComponent,
-        SessionsComponent,
-        SettingsComponent
+        PasswordResetFinishComponent
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

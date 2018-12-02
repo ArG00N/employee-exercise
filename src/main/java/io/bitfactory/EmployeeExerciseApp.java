@@ -69,6 +69,7 @@ public class EmployeeExerciseApp {
         if (env.getProperty("server.ssl.key-store") != null) {
             protocol = "https";
         }
+
         String serverPort = env.getProperty("server.port");
         String contextPath = env.getProperty("server.servlet.context-path");
         if (StringUtils.isBlank(contextPath)) {

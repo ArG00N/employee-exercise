@@ -15,11 +15,10 @@ import { EmployeeExerciseCoreModule } from 'app/core';
 import { EmployeeExerciseAppRoutingModule } from './app-routing.module';
 import { EmployeeExerciseHomeModule } from './home/home.module';
 import { EmployeeExerciseAccountModule } from './account/account.module';
-import { EmployeeExerciseEntityModule } from './entities/entity.module';
 import { StateStorageService } from 'app/core/auth/state-storage.service';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
-import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
+import { JhiMainComponent, NavbarComponent, FooterComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
 
 @NgModule({
     imports: [
@@ -29,11 +28,10 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
         EmployeeExerciseSharedModule,
         EmployeeExerciseCoreModule,
         EmployeeExerciseHomeModule,
-        EmployeeExerciseAccountModule,
-        EmployeeExerciseEntityModule
+        EmployeeExerciseAccountModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
-    declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
+    declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, ActiveMenuDirective, FooterComponent],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,

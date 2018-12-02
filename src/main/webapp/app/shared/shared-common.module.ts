@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 
-import { EmployeeExerciseSharedLibsModule, FindLanguageFromKeyPipe, JhiAlertComponent, JhiAlertErrorComponent } from './';
+import { EmployeeExerciseSharedLibsModule } from './';
 
 @NgModule({
     imports: [EmployeeExerciseSharedLibsModule],
-    declarations: [FindLanguageFromKeyPipe, JhiAlertComponent, JhiAlertErrorComponent],
-    exports: [EmployeeExerciseSharedLibsModule, FindLanguageFromKeyPipe, JhiAlertComponent, JhiAlertErrorComponent]
+    declarations: [],
+    exports: [EmployeeExerciseSharedLibsModule]
 })
 export class EmployeeExerciseSharedCommonModule {}

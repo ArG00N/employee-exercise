@@ -11,8 +11,8 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
             [
                 ...LAYOUT_ROUTES,
                 {
-                    path: 'admin',
-                    loadChildren: './admin/admin.module#EmployeeExerciseAdminModule'
+                    path: 'users',
+                    loadChildren: './users/users.module#EmployeeExerciseUsersModule'
                 }
             ],
             { useHash: true, enableTracing: DEBUG_INFO_ENABLED }

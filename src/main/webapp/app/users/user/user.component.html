@@ -4,13 +4,13 @@
   <fa-icon [icon]="'trash'"></fa-icon>
 </button> -->
 
-<td><a [routerLink]="['./', user.login, 'view']">{{user.id}}</a></td>
+<td><fa-icon  [icon]="'user'"></fa-icon></td>
 <td>{{user.login}}</td>
 <td>{{user.email}}</td>
 <td>{{user.langKey}}</td>
 <td>
-  <div *ngFor="let authority of user.authorities">
-    <span class="badge badge-info">{{ authority }}</span>
+  <div *ngFor="let a of user.authorities">
+    <span class="badge badge-primary">{{ a }}</span>
   </div>
 </td>
 <td>{{user.createdDate | date:'dd/MM/yy HH:mm'}}</td>
@@ -18,8 +18,8 @@
 <td>{{user.lastModifiedDate | date:'dd/MM/yy HH:mm'}}</td>
 <td *jhiHasAnyAuthority="'ROLE_ADMIN'" class="text-right">
   <div class="btn-group flex-btn-group-container">
-    <button type="button" (click)="this.onDelete.emit(this.user)" class="btn btn-danger btn-sm">
-      <fa-icon [icon]="'times'"></fa-icon>
+    <button type="button" (click)="this.onDelete.emit(this.user)" class="btn btn-primary btn-sm">
+      <fa-icon [icon]="'trash'"></fa-icon>
       <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
     </button>
   </div>

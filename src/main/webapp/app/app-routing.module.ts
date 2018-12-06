@@ -13,6 +13,10 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
                 {
                     path: 'users',
                     loadChildren: './users/users.module#EmployeeExerciseUsersModule'
+                },
+                {
+                    path: 'posts',
+                    loadChildren: './post/post.module#EmployeeExercisePostsModule'
                 }
             ],
             { useHash: true, enableTracing: DEBUG_INFO_ENABLED }

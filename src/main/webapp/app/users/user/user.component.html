@@ -8,14 +8,14 @@
 <td>{{user.login}}</td>
 <td>{{user.email}}</td>
 <td>{{user.langKey}}</td>
+<td>{{user.createdDate | date:'dd/MM/yy HH:mm'}}</td>
+<td>{{user.lastModifiedBy}}</td>
+<td>{{user.lastModifiedDate | date:'dd/MM/yy HH:mm'}}</td>
 <td>
   <div *ngFor="let a of user.authorities">
     <span class="badge badge-primary">{{ a }}</span>
   </div>
 </td>
-<td>{{user.createdDate | date:'dd/MM/yy HH:mm'}}</td>
-<td>{{user.lastModifiedBy}}</td>
-<td>{{user.lastModifiedDate | date:'dd/MM/yy HH:mm'}}</td>
 <td *jhiHasAnyAuthority="'ROLE_ADMIN'" class="text-right">
   <div class="btn-group flex-btn-group-container">
     <button type="button" (click)="this.onDelete.emit(this.user)" class="btn btn-primary btn-sm">

@@ -1,26 +1,37 @@
-package io.bitfactory.domain;
+package io.bitfactory.service.dto;
 
-import javax.persistence.*;
+import io.bitfactory.domain.Post;
+import io.bitfactory.domain.User;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
 
-@Entity
-@Table(name = "jhi_post")
-public class Post  implements Serializable {
+public class PostDTO implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "title")
     private String title;
 
-    @Column(name = "text")
     private String text;
 
-    @Column(name = "creation_date", nullable = false, updatable = false)
     private Instant creationDate = Instant.now();
+
+    public PostDTO() {
+        // Empty constructor needed for Jackson.
+
+    }
+
+    public PostDTO(Post post) {
+        this.id = post.getId();
+        this.title = post.getTitle();
+        this.text = post.getText();
+        this.creationDate = post.getCreationDate();
+    }
 
     public Long getId() {
         return id;

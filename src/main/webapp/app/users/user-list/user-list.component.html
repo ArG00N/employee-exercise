@@ -1,0 +1,24 @@
+<table class="table table-striped">
+  <thead>
+    <tr class="animated slideInRight faster">
+      <th></th>
+      <th><span jhiTranslate="userManagement.login">Login</span>
+      </th>
+      <th><span jhiTranslate="userManagement.email">Email</span>
+      </th>
+      <th> <span jhiTranslate="userManagement.langKey">Lang Key</span>
+      </th>
+      <th><span jhiTranslate="userManagement.createdDate">Created Date</span>
+      </th>
+      <th><span jhiTranslate="userManagement.lastModifiedBy">Last Modified By</span>
+      </th>
+      <th><span jhiTranslate="userManagement.lastModifiedDate">Last Modified Date</span>
+      </th>
+      <th><span jhiTranslate="userManagement.profiles">Profiles</span></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody *ngIf="users">
+    <tr class="animated slideInRight faster" jhi-user *ngFor="let user of users; trackBy: track" (onDelete)="this.deleteUser$.next($event)" [user]="user"></tr>
+  </tbody>
+</table>

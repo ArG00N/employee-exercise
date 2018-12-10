@@ -1,0 +1,35 @@
+<div>
+    <button style="margin: 10px 0px" type="button" (click)="this.router.navigate(['posts', 'new']);" class="btn btn-primary">
+        <fa-icon [icon]="'plus'"></fa-icon>
+        <span jhiTranslate="post.action.create"> New Post</span>
+    </button>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr class="animated slideInRight faster">
+            <th></th>
+            <th><span jhiTranslate="post.title">Title1</span>
+            </th>
+            <th><span jhiTranslate="post.creationDate">CreationDate1</span>
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody *ngIf="this.posts$ | async as posts">
+        <tr class="animated slideInRight faster" *ngFor="let post of posts;">
+            <td>
+                <fa-icon [icon]="'font'"></fa-icon>
+            </td>
+            <td>{{post.title}}</td>
+            <td>{{post.creationDate | date:'short'}}</td>
+            <td class="text-right">
+                <div class="btn-group flex-btn-group-container">
+                    <button type="button" (click)="this.router.navigate(['posts', post.id]);" class="btn btn-light">
+                        <fa-icon [icon]="'edit'"></fa-icon>
+                    </button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

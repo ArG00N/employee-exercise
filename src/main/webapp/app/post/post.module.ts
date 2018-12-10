@@ -1,18 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { RouterModule } from '@angular/router';
 import { EmployeeExerciseSharedModule } from 'app/shared';
-
 import { JhiLanguageService } from 'ng-jhipster';
 import { JhiLanguageHelper } from 'app/core';
-import { POSTS_ROUTE } from './post.route';
-import { PostsComponent } from './posts/posts.component';
+import { POSTS_ROUTES } from './post.route';
+import { PostListComponent } from './post-list/post-list.component';
+import { PostFormComponent } from './post-form/post-form.component';
+import { reducerToken, DefaultPostreducer } from './store/reducter';
+import { PostStore } from './store/post.store';
+import { PostLoadResolver } from './resolver.service';
+import { FormsModule } from '@angular/forms';
+import { PostService } from './post.service';
 
 @NgModule({
-    imports: [CommonModule, EmployeeExerciseSharedModule, RouterModule.forChild([POSTS_ROUTE])],
-    declarations: [PostsComponent],
-    providers: []
+    imports: [CommonModule, FormsModule, EmployeeExerciseSharedModule, RouterModule.forChild(POSTS_ROUTES)],
+    declarations: [PostListComponent, PostFormComponent],
+    providers: [PostService, PostLoadResolver, PostStore, { provide: reducerToken, multi: true, useClass: DefaultPostreducer }]
 })
 export class EmployeeExercisePostsModule {
     constructor(private languageService: JhiLanguageService, private languageHelper: JhiLanguageHelper) {

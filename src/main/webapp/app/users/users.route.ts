@@ -1,12 +1,11 @@
 import { Route } from '@angular/router';
-
-import { UsersComponent } from './users/users.component';
+import { UserListComponent } from './user-list/user-list.component';
 import { AuthGuard } from './auth.guard.service';
 import { AdminResolver } from './admin.resolver.service';
 
 export const USERS_ROUTE: Route = {
     path: '',
-    component: UsersComponent,
+    component: UserListComponent,
     canActivate: [AuthGuard],
     resolve: {
         admin: AdminResolver

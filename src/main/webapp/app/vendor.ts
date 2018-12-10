@@ -41,10 +41,16 @@ import {
     faTasks,
     faHome,
     faUsers,
-    faTrash
+    faTrash,
+    faEdit,
+    faFont,
+    faBackward
 } from '@fortawesome/free-solid-svg-icons';
 
 // Adds the SVG icon to the library so you can use it in your page
+library.add(faBackward);
+library.add(faEdit);
+library.add(faFont);
 library.add(faTrash);
 library.add(faUsers);
 library.add(faUser);

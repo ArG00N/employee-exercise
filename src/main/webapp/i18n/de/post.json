@@ -1,0 +1,11 @@
+{
+    "post": {
+        
+        "title": "Titel",
+        "text": "Text",
+        "creationDate": "Erstellungsdatum",
+        "action": {
+            "create": "Post erstellen"
+        }
+    }
+}

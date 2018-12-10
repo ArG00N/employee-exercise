@@ -4,10 +4,9 @@ import { IUser } from 'app/core';
 @Component({
     // tslint:disable-next-line:component-selector
     selector: 'tr[jhi-user]',
-    templateUrl: './user.component.html',
-    styleUrls: ['./user.component.scss']
+    templateUrl: './user-detail.component.html'
 })
-export class UserComponent implements OnInit {
+export class UserDetailComponent implements OnInit {
     @Input() user: IUser;
     @Output() onDelete = new EventEmitter<IUser>();
 

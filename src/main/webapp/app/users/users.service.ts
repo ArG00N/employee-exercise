@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, Subject, BehaviorSubject, ReplaySubject, merge, of } from 'rxjs';
-import { IUser, UserService, Principal } from 'app/core';
-import { SERVER_API_URL } from 'app/app.constants';
-import { shareReplay, map, switchMap, startWith, filter } from 'rxjs/operators';
+import { ReplaySubject } from 'rxjs';
+import { IUser, UserService } from 'app/core';
+import { map, switchMap } from 'rxjs/operators';
 import { JhiEventManager } from 'ng-jhipster';
-import { log } from './utils/operators';
 
 export enum UsersServiceEvents {
     loadUser = 'Load User',
@@ -31,6 +28,6 @@ export class UsersService {
         return this.coreUserService.delete(user.login);
     }
     get users$() {
-        return this.loadUsers$.pipe(switchMap(evt => this.coreUserService.query()), map(response => response.body));
+        return this.loadUsers$.pipe(switchMap(() => this.coreUserService.query()), map(response => response.body));
     }
 }

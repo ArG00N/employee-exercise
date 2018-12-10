@@ -12,7 +12,7 @@
       <div style="display: flex; flex-direction: row; justify-content: flex-end">
         <button (click)="this.create(post)" [disabled]="form.invalid" *ngIf="this.isNew$ | async as new; else save" style="margin-right: 10px" type="button" class="btn btn btn-primary">
           <fa-icon [icon]="'plus'"></fa-icon>
-          <span jhiTranslate="entity.action.create" >Erstellen</span>
+          <span jhiTranslate="post.action.create" >Erstellen</span>
         </button>
         <ng-template #save>
           <button (click)="this.update(post)" [disabled]="form.invalid" style="margin-right: 10px" type="button" class="btn btn btn-primary">
@@ -20,7 +20,7 @@
             <span jhiTranslate="entity.action.save">Save</span>
           </button>
         </ng-template>
-        <button type="button" (click)="this.router.navigate(['posts','all'])" class="btn btn btn-secondary">
+        <button type="button" (click)="this.goBack()" class="btn btn btn-secondary">
           <fa-icon [icon]="'backward'"></fa-icon>
           <span jhiTranslate="entity.action.back">Back</span>
         </button>

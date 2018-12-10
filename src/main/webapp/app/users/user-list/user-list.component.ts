@@ -39,7 +39,10 @@ export class UserListComponent implements OnInit {
     );
     constructor(public userService: UsersService, private eventManager: JhiEventManager, private modalService: NgbModal) {}
     ngOnInit() {
-        this.userService.users$.subscribe(users => (this.users = users));
+        this.userService.users$.subscribe(users => {
+            this.users = users;
+            console.log({ Users: users });
+        });
         this.userService.init();
         this.deletionFlow$.subscribe();
     }

@@ -12,11 +12,18 @@ import { PostStore } from './store/post.store';
 import { PostLoadResolver } from './resolver.service';
 import { FormsModule } from '@angular/forms';
 import { PostService } from './post.service';
+import { StoreFacadeService } from './store-facade.service';
 
 @NgModule({
     imports: [CommonModule, FormsModule, EmployeeExerciseSharedModule, RouterModule.forChild(POSTS_ROUTES)],
     declarations: [PostListComponent, PostFormComponent],
-    providers: [PostService, PostLoadResolver, PostStore, { provide: reducerToken, multi: true, useClass: DefaultPostreducer }]
+    providers: [
+        StoreFacadeService,
+        PostService,
+        PostLoadResolver,
+        PostStore,
+        { provide: reducerToken, multi: true, useClass: DefaultPostreducer }
+    ]
 })
 export class EmployeeExercisePostsModule {
     constructor(private languageService: JhiLanguageService, private languageHelper: JhiLanguageHelper) {

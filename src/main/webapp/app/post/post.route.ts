@@ -5,7 +5,7 @@ import { PostFormComponent } from './post-form/post-form.component';
 
 export const POSTS_ROUTES: Routes = [
     {
-        path: 'all',
+        path: '',
         component: PostListComponent,
         resolve: { data: PostLoadResolver }
     },

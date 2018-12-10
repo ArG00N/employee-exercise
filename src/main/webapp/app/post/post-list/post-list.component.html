@@ -8,15 +8,18 @@
     <thead>
         <tr class="animated slideInRight faster">
             <th></th>
-            <th><span jhiTranslate="post.title">Title1</span>
+            <th><span jhiTranslate="post.title">Title</span>
             </th>
-            <th><span jhiTranslate="post.creationDate">CreationDate1</span>
+            <th><span jhiTranslate="post.creationDate">CreationDate</span>
             </th>
-            <th>
+            <th style="display: flex; flex-direction: row; justify-content: flex-end">
+                <button type="button" (click)="this.refresh();" class="btn btn-primary">
+                    <fa-icon [icon]="'sync-alt'"></fa-icon>
+                </button>
             </th>
         </tr>
     </thead>
-    <tbody *ngIf="this.posts$ | async as posts">
+    <tbody *ngIf="this.facade.posts$ | async as posts">
         <tr class="animated slideInRight faster" *ngFor="let post of posts;">
             <td>
                 <fa-icon [icon]="'font'"></fa-icon>
@@ -25,7 +28,7 @@
             <td>{{post.creationDate | date:'short'}}</td>
             <td class="text-right">
                 <div class="btn-group flex-btn-group-container">
-                    <button type="button" (click)="this.router.navigate(['posts', post.id]);" class="btn btn-light">
+                    <button type="button" (click)="this.router.navigate(['posts', post.id]);" class="btn btn-outline-primary">
                         <fa-icon [icon]="'edit'"></fa-icon>
                     </button>
                 </div>

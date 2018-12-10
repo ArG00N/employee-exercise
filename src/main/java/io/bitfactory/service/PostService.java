@@ -35,6 +35,7 @@ import java.util.stream.Collectors;
 
 /**
  * Service class for managing posts.
+ *
  */
 @Service
 @Transactional
@@ -48,6 +49,7 @@ public class PostService {
     }
 
     public Post createPost(PostDTO postDto) {
+
         Post post = new Post();
         post.setTitle(postDto.getTitle());
         post.setText(postDto.getText());
@@ -71,7 +73,7 @@ public class PostService {
 
     @Transactional(readOnly = true)
     public List<Post> getAllPosts() {
-        return postRepository.findAll(new Sort(Sort.Direction.ASC, "creationDate"));
+        return postRepository.findAll(new Sort(Sort.Direction.DESC, "creationDate"));
     }
 
 }

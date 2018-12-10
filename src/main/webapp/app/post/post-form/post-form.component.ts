@@ -5,6 +5,7 @@ import { switchMap, map } from 'rxjs/operators';
 import { IPost } from '../model/post.model';
 import { of } from 'rxjs';
 import { UpdatePost, CreatePost } from '../store/actions';
+import { StoreFacadeService } from '../store-facade.service';
 
 @Component({
     selector: 'jhi-post-form',
@@ -13,24 +14,24 @@ import { UpdatePost, CreatePost } from '../store/actions';
 })
 export class PostFormComponent implements OnInit {
     isNew$ = this.route.params.pipe(map(({ id }) => !id));
-
     post$ = this.route.params.pipe(
         switchMap(
-            ({ id }) =>
-                id
-                    ? this.store.select<IPost[]>(s => s.posts).pipe(map(posts => posts.find(p => p.id.toString() === id)))
-                    : of({ title: '', text: '' })
+            ({ id }) => (id ? this.facade.posts$.pipe(map(posts => posts.find(p => p.id.toString() === id))) : of({ title: '', text: '' }))
         )
     );
-    constructor(public router: Router, private route: ActivatedRoute, private store: PostStore) {}
+    constructor(public router: Router, private route: ActivatedRoute, public facade: StoreFacadeService) {}
 
     ngOnInit() {}
+
     update(post: IPost) {
-        this.store.dispatch(new UpdatePost(post));
-        this.router.navigate(['posts', 'all']);
+        this.facade.update(post);
+        this.goBack();
     }
     create(post: IPost) {
-        this.store.dispatch(new CreatePost({ ...post, creationDate: new Date() }));
-        this.router.navigate(['posts', 'all']);
+        this.facade.create({ ...post, creationDate: new Date() });
+        this.goBack();
+    }
+    goBack() {
+        this.router.navigate(['posts', { fromForm: true }]);
     }
 }

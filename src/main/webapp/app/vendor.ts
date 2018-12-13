@@ -45,10 +45,12 @@ import {
     faEdit,
     faFont,
     faBackward,
-    faSyncAlt
+    faSyncAlt,
+    faComment
 } from '@fortawesome/free-solid-svg-icons';
 
 // Adds the SVG icon to the library so you can use it in your page
+library.add(faComment);
 library.add(faSyncAlt);
 library.add(faBackward);
 library.add(faEdit);

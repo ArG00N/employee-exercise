@@ -22,7 +22,7 @@
     <tbody *ngIf="this.facade.posts$ | async as posts">
         <tr class="animated slideInRight faster" *ngFor="let post of posts;">
             <td>
-                <fa-icon [icon]="'font'"></fa-icon>
+                <fa-icon [icon]="'comment'"></fa-icon>
             </td>
             <td>{{post.title}}</td>
             <td>{{post.creationDate | date:'short'}}</td>

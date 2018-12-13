@@ -8,7 +8,6 @@ export enum ActionTypes {
     UpdatePost = 'UpdatePost',
     PostUpdated = 'PostUpdated'
 }
-
 export interface Action {
     type: ActionTypes;
 }
@@ -36,3 +35,5 @@ export class PostUpdated implements Action {
     readonly type = ActionTypes.PostUpdated;
     constructor(public payload: IPost) {}
 }
+
+export type Actions = LoadPosts | PostsLoaded | CreatePost | PostCreated | UpdatePost | PostUpdated;

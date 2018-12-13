@@ -1,5 +1,5 @@
 import { InjectionToken } from '@angular/core';
-import { Action, PostsLoaded } from './actions';
+import { Action, Actions, ActionTypes } from './actions';
 import { PostState, initialState } from './post.store';
 
 export interface IPostReducer {
@@ -8,12 +8,14 @@ export interface IPostReducer {
 export const reducerToken = new InjectionToken<IPostReducer>('PostReducer');
 
 export class DefaultPostreducer implements IPostReducer {
-    reduce(state: PostState = initialState, action: Action): PostState {
-        if (action instanceof PostsLoaded) {
-            return {
-                posts: [...action.payload]
-            };
+    reduce(state: PostState = initialState, action: Actions): PostState {
+        switch (action.type) {
+            case ActionTypes.PostsLoaded:
+                return {
+                    posts: [...action.payload]
+                };
+            default:
+                return { ...state };
         }
-        return { ...state };
     }
 }

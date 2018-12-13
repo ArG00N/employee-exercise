@@ -1,7 +1,7 @@
-import { Injectable, InjectionToken, Inject } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { IPost } from '../model/post.model';
 import { Observable, BehaviorSubject, of, Subject, ReplaySubject } from 'rxjs';
-import { map, last, filter } from 'rxjs/operators';
+import { map, filter } from 'rxjs/operators';
 import { reducerToken, IPostReducer } from './reducter';
 import { Action } from './actions';
 
